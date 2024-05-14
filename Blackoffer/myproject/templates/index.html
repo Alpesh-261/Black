@@ -1,0 +1,137 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data</title>
+    <style>
+        table, th, tr, td {
+            border: 1px solid black
+        }
+    </style>
+</head>
+<body>
+    <table>
+          <th>Id</th>
+          <th>End_year</th>
+          <th>Intensity</th>
+          <th>Sector</th>
+          <th>Topic</th>
+          <th>Insight</th>
+          <th>url</th>
+          <th>Region</th>
+          <th>Start_year</th>
+          <th>Impact</th>
+          <th>Added</th>
+          <th>Published</th>
+          <th>Country</th>
+          <th>Relevance</th>
+          <th>Pestle</th>
+          <th>Source</th>
+          <th>Title</th>
+          <th>Liklihood</th>
+
+          {% for yourdata in datas %}
+          <tr>
+                <td>{{yourdata.id}}</td>
+                <td>{{yourdata.end_year}}</td>
+                <td>{{yourdata.intensity}}</td>
+                <td>{{yourdata.sector}}</td>
+                <td>{{yourdata.topic}}</td>
+                <td>{{yourdata.insight}}</td>
+                <td>{{yourdata.url}}</td>
+                <td>{{yourdata.region}}</td>
+                <td>{{yourdata.start_year}}</td>
+                <td>{{yourdata.impact}}</td>
+                <td>{{yourdata.added}}</td>
+                <td>{{yourdata.published}}</td>
+                <td>{{yourdata.country}}</td>
+                <td>{{yourdata.relevance}}</td>
+                <td>{{yourdata.pestle}}</td>
+                <td>{{yourdata.source}}</td>
+                <td>{{yourdata.title}}</td>
+                <td>{{yourdata.liklihood}}</td>
+           </tr>
+
+           {% endfor %}
+    </table>
+   
+</body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
+</head>
+<body>
+    <table id="example" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>End_year</th>
+                <th>Intensity</th>
+                <th>Sector</th>
+                <th>Topic</th>
+                <th>Insight</th>
+                <th>url</th>
+                <th>Region</th>
+                <th>Start_year</th>
+                <th>Impact</th>
+                <th>Added</th>
+                <th>Published</th>
+                <th>Country</th>
+                <th>Relevance</th>
+                <th>Pestle</th>
+                <th>Source</th>
+                <th>Title</th>
+                <th>Liklihood</th>
+            </tr>
+        </thead>
+
+        {% for yourdata in datas %}
+        <tbody>
+            <tr>
+                <td>{{yourdata.id}}</td>
+                <td>{{yourdata.end_year}}</td>
+                <td>{{yourdata.intensity}}</td>
+                <td>{{yourdata.sector}}</td>
+                <td>{{yourdata.topic}}</td>
+                <td>{{yourdata.insight}}</td>
+                <td>{{yourdata.url}}</td>
+                <td>{{yourdata.region}}</td>
+                <td>{{yourdata.start_year}}</td>
+                <td>{{yourdata.impact}}</td>
+                <td>{{yourdata.added}}</td>
+                <td>{{yourdata.published}}</td>
+                <td>{{yourdata.country}}</td>
+                <td>{{yourdata.relevance}}</td>
+                <td>{{yourdata.pestle}}</td>
+                <td>{{yourdata.source}}</td>
+                <td>{{yourdata.title}}</td>
+                <td>{{yourdata.liklihood}}</td>
+                
+            </tr>
+            
+        </tbody>
+        {% endfor %}
+        
+    </table>
+    
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
+    
+</body>   
+</html>
+

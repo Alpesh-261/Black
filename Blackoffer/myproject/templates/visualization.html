@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+</head>
+<body>
+  <div class="jumbotron">
+    <h1>Dashboard UI</h1>
+  </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col" style="background-color:lavender;">
+<div id="myChart" style="width:100%; max-width:3200px; height:1500px;"></div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col" style="background-color:lavender;">
+      <table id="example" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>End_year</th>
+                <th>Intensity</th>
+                <th>Sector</th>
+                <th>Topic</th>
+                <th>Insight</th>
+                <th>url</th>
+                <th>Region</th>
+                <th>Start_year</th>
+                <th>Impact</th>
+                <th>Added</th>
+                <th>Published</th>
+                <th>Country</th>
+                <th>Relevance</th>
+                <th>Pestle</th>
+                <th>Source</th>
+                <th>Title</th>
+                <th>Liklihood</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for yourdata in datas %}
+        
+            <tr>
+                <td>{{yourdata.id}}</td>
+                <td>{{yourdata.end_year}}</td>
+                <td>{{yourdata.intensity}}</td>
+                <td>{{yourdata.sector}}</td>
+                <td>{{yourdata.topic | truncatechars:5}}</td>
+                <td>{{yourdata.insight | truncatechars:5}}</td>
+                <td>{{yourdata.url | truncatechars:5}}</td>
+                <td>{{yourdata.region}}</td>
+                <td>{{yourdata.start_year}}</td>
+                <td>{{yourdata.impact}}</td>
+                <td>{{yourdata.added}}</td>
+                <td>{{yourdata.published}}</td>
+                <td>{{yourdata.country}}</td>
+                <td>{{yourdata.relevance}}</td>
+                <td>{{yourdata.pestle}}</td>
+                <td>{{yourdata.source | truncatechars:5}}</td>
+                <td>{{yourdata.title | truncatechars:5}}</td>
+                <td>{{yourdata.liklihood}}</td>
+                
+            </tr>
+            
+        
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+<script>
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+  
+  function drawChart() {
+  const data = google.visualization.arrayToDataTable([
+    ['Data', 'Mhl'],
+    ['Intensity',{{intensity}}],
+    ['Liklihood',{{likelihood}}],
+    ['Relevance',{{relevance}}]  
+  ]);
+  
+  const options = {
+    title:'Data'
+  };
+  
+  const chart = new google.visualization.PieChart(document.getElementById('myChart'));
+    chart.draw(data, options);
+  }
+  new DataTable('#example');
+</script>

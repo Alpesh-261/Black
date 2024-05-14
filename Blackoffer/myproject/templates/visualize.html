@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<body>
+<div id="myChart" style="width:100%; max-width:2000px; height:1900px;"></div>
+
+<script>
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+const data = google.visualization.arrayToDataTable([
+  ['Data', 'Mhl'],
+  ['Intensity',{{intensity}}],
+  ['Liklihood',{{likelihood}}],
+  ['Relevance',{{relevance}}]  
+]);
+
+const options = {
+  title:'Data'
+};
+
+const chart = new google.visualization.PieChart(document.getElementById('myChart'));
+  chart.draw(data, options);
+}
+</script>
+
+</body>
+</html>
